@@ -7,10 +7,14 @@ angular.module('kalininApp')
       'link': '/'
     },{
       'title': 'Конкурсы',
-      'link': '/offers'
+      'link': '/offers',
+      'restricted': true,
+      'adminOnly': true
     },{
       'title': 'Заказчики',
-      'link': '/clients'
+      'link': '/clients',
+      'restricted': true,
+      'adminOnly': true
     }];
 
     $scope.isCollapsed = true;
@@ -21,6 +25,15 @@ angular.module('kalininApp')
     $scope.logout = function() {
       Auth.logout();
       $location.path('/login');
+    };
+
+    $scope.isRestricted = function(item) {
+      if (item.adminOnly) {
+        return !$scope.isAdmin();
+      } else if (item.restricted) {
+        return !$scope.isLoggedIn();
+      }
+      return false;
     };
 
     $scope.isActive = function(route) {

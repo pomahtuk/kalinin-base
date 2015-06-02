@@ -5,7 +5,11 @@ angular.module('kalininApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'btford.socket-io'
+  'btford.socket-io',
+  'ngAnimate',
+  'ngTouch',
+  'ui.grid',
+  'ui.grid.edit'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
