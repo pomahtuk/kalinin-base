@@ -136,6 +136,10 @@ angular.module('kalininApp')
         return currentUser.role === 'admin';
       },
 
+      isEditor: function() {
+        return currentUser.role === 'editor';
+      },
+
       /**
        * Get auth token
        */

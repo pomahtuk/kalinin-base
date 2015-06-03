@@ -9,7 +9,9 @@ angular.module('kalininApp', [
   'ngAnimate',
   'ngTouch',
   'ui.grid',
-  'ui.grid.edit'
+  'ui.grid.edit',
+  'ui.bootstrap',
+  'ui.bootstrap.datetimepicker'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
