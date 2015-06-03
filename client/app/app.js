@@ -11,9 +11,12 @@ angular.module('kalininApp', [
   'ui.grid',
   'ui.grid.edit',
   'ui.bootstrap',
-  'ui.bootstrap.datetimepicker'
+  'ui.bootstrap.datetimepicker',
+  'ui.select'
 ])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+  .config(function ($routeProvider, $locationProvider, $httpProvider, uiSelectConfig) {
+    uiSelectConfig.theme = 'bootstrap';
+
     $routeProvider
       .otherwise({
         redirectTo: '/'

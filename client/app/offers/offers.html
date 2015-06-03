@@ -1,9 +1,29 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-    This is the offers view.
-    </div>
+
+  <div class="top-line">
+    <button class="btn btn-primary pull-right" ng-click="addNewOffer()" ng-if="isAdmin">Добавить</button>
+    <h3>Конкурсы</h3>
   </div>
-</div>>
+
+  <hr/>
+
+  <div ng-if="isAdmin">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model='filter.value'>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click='filterFunc()'>Найти</button>
+      </span>
+    </div>
+
+    <br>
+
+    <div ui-grid="gridOptions" ui-grid-edit class="grid"></div>
+  </div>
+
+  <div ng-show="!isAdmin">
+    Данная информация Вам недоступна
+  </div>
+
+</div>

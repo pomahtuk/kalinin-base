@@ -3,15 +3,40 @@
 var _ = require('lodash');
 var Clients = require('./clients.model');
 
-// Get list of clientss
+// Get list of clients
 exports.index = function(req, res) {
-  Clients.find(function (err, clientss) {
+  Clients.find(function (err, clients) {
     if(err) { return handleError(res, err); }
-    return res.json(200, clientss);
+    return res.json(200, clients);
   });
 };
 
-// Get a single clients
+// Get list of clients
+exports.search = function(req, res) {
+  var regex = new RegExp(req.params.query, "i"),
+    query = {
+      $or: [
+        {
+          name: regex
+        }, {
+          inn: regex
+        }, {
+          address: regex
+        }, {
+          phone: regex
+        }, {
+          fio: regex
+        }
+      ]
+    };
+
+  Clients.find(query, function (err, clients) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, clients);
+  });
+};
+
+// Get a single client
 exports.show = function(req, res) {
   Clients.findById(req.params.id, function (err, clients) {
     if(err) { return handleError(res, err); }
@@ -20,7 +45,7 @@ exports.show = function(req, res) {
   });
 };
 
-// Creates a new clients in the DB.
+// Creates a new client in the DB.
 exports.create = function(req, res) {
   Clients.create(req.body, function(err, clients) {
     if(err) { return handleError(res, err); }
@@ -28,7 +53,7 @@ exports.create = function(req, res) {
   });
 };
 
-// Updates an existing clients in the DB.
+// Updates an existing client in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
   Clients.findById(req.params.id, function (err, clients) {
@@ -42,7 +67,7 @@ exports.update = function(req, res) {
   });
 };
 
-// Deletes a clients from the DB.
+// Deletes a client from the DB.
 exports.destroy = function(req, res) {
   Clients.findById(req.params.id, function (err, clients) {
     if(err) { return handleError(res, err); }

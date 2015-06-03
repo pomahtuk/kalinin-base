@@ -21,6 +21,7 @@
       <!-- endinjector -->
     <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css">
     <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css">
     <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
     <!-- endbuild -->
   </head>
@@ -33,15 +34,16 @@
     <div ng-view=""></div>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
+
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
     <!-- build:js({client,node_modules}) app/vendor.js -->
+
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
-      <script src="bower_components/moment/min/moment-with-locales.js"></script>
-      <script type="text/javascript">moment.locale('ru');</script>>
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -51,10 +53,12 @@
       <script src="bower_components/angular-socket-io/socket.js"></script>
       <script src="bower_components/angular-touch/angular-touch.js"></script>
       <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/moment/min/moment-with-locales.js"></script>
       <!-- endbower -->
       <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="bower_components/angular-ui-select/dist/select.js"></script>
       <script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -89,5 +93,6 @@
           <script src="components/socket/socket.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
+    <script>moment.locale('ru');</script>
 </body>
 </html>

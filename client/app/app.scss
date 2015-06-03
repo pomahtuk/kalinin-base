@@ -27,3 +27,15 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'offers/new/offers/new.scss';
 @import 'offers/offers.scss';
 // endinjector
+
+
+@font-face {
+  font-family: 'ui-grid';
+  src: url('/bower_components/angular-ui-grid/ui-grid.eot');
+  src: url('/bower_components/angular-ui-grid/ui-grid.eot#iefix') format('embedded-opentype'),
+    url('/bower_components/angular-ui-grid/ui-grid.woff') format('woff'),
+    url('/bower_components/angular-ui-grid/ui-grid.ttf?') format('truetype'),
+    url('/bower_components/angular-ui-grid/ui-grid.svg?#ui-grid') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

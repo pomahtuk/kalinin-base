@@ -15,7 +15,7 @@ angular.module('kalininApp')
       data: []
     };
 
-    $scope.isAdmin = Auth.isAdmin();
+    $scope.isAdmin = Auth.isAdmin;
 
     $scope.gridOptions.onRegisterApi = function(gridApi) {
       $scope.gridApi = gridApi;
@@ -40,7 +40,7 @@ angular.module('kalininApp')
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('clients');
     });
 
   });

@@ -6,7 +6,22 @@ angular.module('kalininApp')
     $scope.opened = {
       dateTime: false,
       dateTimeAuction: false
-    }
+    };
+
+    $scope.clients = [];
+
+    //$http.get('/api/clients').then(function (response) {
+    //  console.log(response);
+    //  $scope.clients = response.data;
+    //});
+
+    $scope.refreshClients = function(query) {
+      return $http.get(
+        '/api/clients/search/' + query
+      ).then(function(response) {
+          $scope.clients = response.data
+        });
+    };
 
     $scope.open = function($event, type) {
       $event.preventDefault();
@@ -23,7 +38,9 @@ angular.module('kalininApp')
       if (Object.keys($scope.offer).length === 0) {
         return true;
       }
-      $http.post('/api/clients', $scope.offer);
+      $scope.offer.client = $scope.offer.client._id;
+      //debugger;
+      $http.post('/api/offers', $scope.offer);
       $scope.client = {};
       $location.path('/offers');
     };
